@@ -9,7 +9,7 @@ HttpServer* HttpServer::getInstance()
 	return &instance;
 }
 
-void HttpServer::startServer()
+void HttpServer::startServer(int port, const QString& ip /*= "0.0.0.0*/)
 {
 	if (httpThread.isRunning())
 	{
@@ -17,7 +17,7 @@ void HttpServer::startServer()
 	}
 
 	httpThread.start();
-	emit(sigStartServer());
+	emit(sigStartServer(port, ip));
 }
 
 void HttpServer::stopServer()
@@ -43,7 +43,7 @@ HttpWorker::~HttpWorker()
 	stop();
 }
 
-void HttpWorker::start()
+void HttpWorker::start(int port, const QString& ip)
 {
 	if (server.is_running())
 	{
@@ -51,7 +51,7 @@ void HttpWorker::start()
 	}
 
 	server.set_mount_point("/", (QApplication::applicationDirPath() + "/web").toStdString());
-	server.listen("0.0.0.0", 8080);
+	server.listen(ip.toLatin1(), port);
 }
 
 void HttpWorker::stop()

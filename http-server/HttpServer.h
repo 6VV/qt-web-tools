@@ -10,7 +10,7 @@ class HttpWorker :public QObject
 public:
 	~HttpWorker();
 
-	void start();
+	void start(int port, const QString& ip);
 	void stop();
 
 private:
@@ -22,12 +22,12 @@ class HttpServer :public QObject
 	Q_OBJECT
 
 signals:
-	void sigStartServer();
+	void sigStartServer(int port, const QString& ip);
 
 public:
 	static HttpServer* getInstance();
 
-	void startServer();
+	void startServer(int port, const QString& ip = "0.0.0.0");
 	void stopServer();
 
 private:
