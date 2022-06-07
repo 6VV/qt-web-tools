@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/demo/vs/.vs
+/demo/vs/QtWeb/x64
+/demo/vs/bin/QtWebD.ilk
+/demo/vs/bin/QtWebD.pdb
