@@ -1,0 +1,86 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "Win-Debug-x64",
+      "displayName": "Win Debug (x64)",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "inherits": [
+        "windows_base"
+      ]
+    },
+    {
+      "name": "Win-Release-x64",
+      "displayName": "Win Release (x64)",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "inherits": [
+        "windows_base"
+      ]
+    },
+    {
+      "hidden": true,
+      "name": "windows_base",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "D:/QT/5.15.0/MSVC2019_64"
+      },
+      "binaryDir": "${sourceDir}/../out/build/${presetName}",
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      },
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe"
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "Linux-Debug-x64",
+      "displayName": "Linux Debug (x64)",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "inherits": [
+        "linux_base"
+      ]
+    },
+    {
+      "name": "Linux-Release-x64",
+      "displayName": "Linux Release (x64)",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "inherits": [
+        "linux_base"
+      ]
+    },
+    {
+      "hidden": true,
+      "name": "linux_base",
+      "displayName": "Linux Debug",
+      "description": "面向适用于 Linux 的 Windows 子系统(WSL)或远程 Linux 系统。",
+      "generator": "Ninja",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "/home/vv/Qt5.14.2/5.14.2/gcc_64"
+      },
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "installDir": "${sourceDir}/out/install/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "hidden": true,
+      "name": "Qt",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "$env{QTDIR}"
+      },
+      "environment": {
+        "PATH": "$penv{PATH};$env{QTDIR}/bin"
+      }
+    }
+  ]
+}

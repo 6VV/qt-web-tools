@@ -34,3 +34,6 @@
 /demo/vs/QtWeb/x64
 /demo/vs/bin/QtWebD.ilk
 /demo/vs/bin/QtWebD.pdb
+demo/out
+demo/qtweb/.angular/cache/13.1.3
+demo/qtapp/.vs
