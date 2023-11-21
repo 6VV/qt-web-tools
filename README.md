@@ -22,4 +22,11 @@ Web端通过WebSocket接收注册的对象，并调用该对象的信号、槽�
 进入demo/vs/QtWeb目标，修改QtWeb.cpp，修改webView加载的URL地址：
 > webView->load(QUrl("MyWebUrl"));
 
+### 4、文件说明
+#### (1) http-server
+该目录下为Qt中可能用到的开发工具，包括Http服务、远程对象注册功能。
+#### (2) qwebchannel
+该目录下为Web端远程对象接收功能。
+#### (3) ts-cpp-object
+该目录下为Web端C++注册对象的TypeScript类型系统，用于辅助开发。
 
